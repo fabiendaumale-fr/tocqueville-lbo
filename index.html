@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparatif montages LBO — Tocqueville Partenaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-50:  #EAF1FB; --blue-200: #85B7EB; --blue-600: #185FA5; --blue-800: #0C447C; --blue-900: #042C53;
+  --amber-50: #FEF3DC; --amber-200: #EF9F27; --amber-600: #854F0B; --amber-800: #633806;
+  --teal-50:  #E1F5EE; --teal-200: #5DCAA5; --teal-600: #0F6E56; --teal-800: #085041;
+  --purple-50:#EEEDFE; --purple-200:#AFA9EC; --purple-600:#534AB7; --purple-800:#3C3489; --purple-900:#26215C;
+  --green-50: #EAF3DE; --green-600: #3B6D11; --green-800: #27500A;
+  --red-50:   #FCEBEB; --red-600:   #A32D2D;
+  --warn-50:  #FAEEDA; --warn-600:  #854F0B;
+  --gray-50:  #F6F5F2; --gray-100: #EBEBEB; --gray-200: #D3D1C7; --gray-400: #888780; --gray-800: #2C2C2A;
+  --text: #1a1a18; --text-muted: #6b6b66; --text-light: #9a9a94;
+  --bg: #FAFAF8; --bg-card: #FFFFFF;
+  --border: rgba(0,0,0,0.09); --border-strong: rgba(0,0,0,0.15);
+  --radius: 12px; --radius-sm: 8px; --radius-xs: 6px;
+  --font: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.header-meta {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  font-family: var(--mono);
+}
+.header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.header p {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 640px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s;
+}
+.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06); }
+.card.featured { border-color: var(--purple-600); border-width: 2px; }
+
+.card-head {
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.card-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 5px;
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.card-sub {
+  font-size: 11px;
+  line-height: 1.45;
+  margin-top: 4px;
+  font-family: var(--mono);
+}
+.badge-rec {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+/* Colours per scenario */
+.s1 .card-head { background: var(--blue-50); }
+.s1 .card-num { color: var(--blue-600); }
+.s1 .card-title { color: var(--blue-800); }
+.s1 .card-sub { color: var(--blue-600); }
+
+.s2 .card-head { background: var(--amber-50); }
+.s2 .card-num { color: var(--amber-600); }
+.s2 .card-title { color: var(--amber-800); }
+.s2 .card-sub { color: var(--amber-600); }
+
+.s3 .card-head { background: var(--teal-50); }
+.s3 .card-num { color: var(--teal-600); }
+.s3 .card-title { color: var(--teal-800); }
+.s3 .card-sub { color: var(--teal-600); }
+
+.s4 .card-head { background: var(--purple-50); }
+.s4 .card-num { color: var(--purple-600); }
+.s4 .card-title { color: var(--purple-800); }
+.s4 .card-sub { color: var(--purple-600); }
+.s4 .badge-rec { background: var(--purple-600); color: #fff; }
+
+/* Card body */
+.card-body {
+  padding: 14px 18px;
+  flex: 1;
+}
+.section-lbl {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text-light);
+  margin: 12px 0 6px;
+}
+.section-lbl:first-child { margin-top: 0; }
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ok .dot { background: var(--green-50); }
+.ok .dot svg { color: var(--green-600); }
+.ko .dot { background: var(--red-50); }
+.ko .dot svg { color: var(--red-600); }
+.nu .dot { background: var(--warn-50); }
+.nu .dot svg { color: var(--warn-600); }
+.ok .item-text { color: var(--text); }
+.ko .item-text { color: var(--text); }
+.nu .item-text { color: var(--text-muted); font-style: italic; }
+
+/* Score grid */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+.score-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.score-title {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 12px;
+}
+.score-row:last-child { border-bottom: none; font-weight: 600; font-size: 12.5px; padding-top: 6px; margin-top: 2px; }
+.score-lbl { color: var(--text-muted); }
+.score-val { font-family: var(--mono); font-size: 11px; }
+.score-val.g { color: var(--green-600); font-weight: 600; }
+.score-val.a { color: var(--warn-600); font-weight: 500; }
+.score-val.r { color: var(--red-600); font-weight: 500; }
+
+/* Bank badge special */
+.score-card.bank-card {
+  border-color: var(--blue-200);
+  background: linear-gradient(135deg, #fff 0%, var(--blue-50) 100%);
+}
+.bank-card .score-title { color: var(--blue-800); border-color: var(--blue-200); }
+
+/* Footer */
+.footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--text-light);
+  font-family: var(--mono);
+}
+.footer-date {
+  font-size: 11px;
+  color: var(--text-light);
+  font-family: var(--mono);
+}
+
+/* Print */
+@media print {
+  body { background: #fff; }
+  .card:hover { box-shadow: var(--shadow); }
+  .page { padding: 24px 16px; }
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .score-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: 1fr; }
+  .header h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-meta">Tocqueville Partenaires — Document confidentiel — Mars 2026</div>
+    <h1>Comparatif des 4 montages d'acquisition LBO</h1>
+    <p>Analyse comparative des structures juridiques, fiscales et financières pour l'acquisition de Cours Tocqueville et Institut Tocqueville. Valorisation 1,5 M€ · Prix closing 651 k€ · Prêt 7 ans @ 4 %.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- S1 -->
+    <div class="card s1">
+      <div class="card-head">
+        <div class="card-num">Système 1</div>
+        <div class="card-title">DSI = holding commune</div>
+        <div class="card-sub">FDA Holding → DSI (HC, dette) ← Mlot Holding<br>DSI détient 100 % OpCos</div>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Avantages</div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Structure la plus simple — une seule HC</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Lisibilité bancaire maximale</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">DSCR excellent — dividendes 100 % dans DSI</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">IS quasi nul pendant le prêt (intérêts déductibles)</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Un seul pacte d'actionnaires</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Frais récurrents les plus bas — 11 500 €/an</span></div>
+        <div class="section-lbl">Inconvénients</div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Contesté par l'avocat de Géraud — dette difficile à isoler dans une HC 50/50</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Formulation contractuelle complexe pour isoler la charge de dette</span></div>
+        <div class="item nu"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 2v3M4.5 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">IS DSI remonte post-remboursement (~3 750 €/an)</span></div>
+      </div>
+    </div>
+
+    <!-- S2 -->
+    <div class="card s2">
+      <div class="card-head">
+        <div class="card-num">Système 2</div>
+        <div class="card-title">DSI + Mlot Holding directs dans OpCos</div>
+        <div class="card-sub">FDA Holding → DSI (50 % OpCos, dette)<br>Mlot Holding (50 % OpCos)</div>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Avantages</div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Dette isolée dans DSI — acceptable par Géraud</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">IS DSI plus faible — reçoit seulement 50 % des dividendes</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Fiscalement optimal post-remboursement</span></div>
+        <div class="section-lbl">Inconvénients</div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Deux pactes d'actionnaires à rédiger — un par OpCo</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Nantissement complexe — deux participations séparées</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Valorisation et gouvernance dupliquées sur 2 entités</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Frais récurrents élevés — 15 500 €/an</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Coûts non-récurrents élevés — 53 k€ (2 pactes OpCos)</span></div>
+        <div class="item nu"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 2v3M4.5 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">DSCR légèrement dégradé vs S1</span></div>
+      </div>
+    </div>
+
+    <!-- S3 -->
+    <div class="card s3">
+      <div class="card-head">
+        <div class="card-num">Système 3</div>
+        <div class="card-title">Holding commune séparée</div>
+        <div class="card-sub">FDA Holding → DSI (50 % HC, dette)<br>Mlot Holding (50 % HC) → OpCos</div>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Avantages</div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Bonne lisibilité bancaire — nantissement sur titres HC</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Dette isolée dans DSI — conforme au souhait de Géraud</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Un seul pacte — gouvernance centralisée dans HC</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Valorisation unique — plus simple à présenter</span></div>
+        <div class="section-lbl">Inconvénients</div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">IS HC supplémentaire à chaque remontée — coût le plus élevé</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Frais de gestion les plus hauts — 17 000 €/an</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Coût total sur 10 ans le plus élevé — 245 k€</span></div>
+        <div class="item nu"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 2v3M4.5 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">DSCR dégradé — passage par HC avant DSI</span></div>
+        <div class="item nu"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 2v3M4.5 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Simplification possible post-remboursement (fusion HC/DSI)</span></div>
+      </div>
+    </div>
+
+    <!-- S4 -->
+    <div class="card s4 featured">
+      <div class="card-head">
+        <div class="card-num">Système 4</div>
+        <div class="card-title">S2 + fusion des OpCos</div>
+        <div class="card-sub">FDA Holding → DSI (50 % OpCo unique, dette)<br>Mlot Holding (50 % OpCo unique)</div>
+        <div class="badge-rec">★ Recommandé</div>
+      </div>
+      <div class="card-body">
+        <div class="section-lbl">Avantages</div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Dette isolée dans DSI — pleinement acceptable par Géraud</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Un seul pacte sur OpCo unique — gouvernance limpide</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Nantissement simple — une seule participation</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">IS DSI faible — reçoit seulement 50 % des dividendes</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Frais de gestion les plus bas après S1 — 10 500 €/an</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Contrainte SAP résolue — déclaration NOVA suffit depuis jan. 2025</span></div>
+        <div class="item ok"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">Coût structure inférieur à S1 sur 10 ans — 164 k€ vs 172 k€</span></div>
+        <div class="section-lbl">Inconvénients</div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Coût ponctuel fusion IT→CT — ~5 500 €</span></div>
+        <div class="item ko"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M2 2l5 5M7 2l-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">Délai 3-4 mois pour la fusion (idéalement avant closing)</span></div>
+        <div class="item nu"><div class="dot"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M4.5 2v3M4.5 7v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><span class="item-text">DSCR légèrement inférieur à S1 (DSI reçoit 50 % des dividendes)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Score grid -->
+  <div class="score-grid">
+
+    <div class="score-card">
+      <div class="score-title">Coût structure 10 ans</div>
+      <div class="score-row"><span class="score-lbl">S1</span><span class="score-val a">172 k€</span></div>
+      <div class="score-row"><span class="score-lbl">S2</span><span class="score-val r">216 k€</span></div>
+      <div class="score-row"><span class="score-lbl">S3</span><span class="score-val r">245 k€</span></div>
+      <div class="score-row"><span class="score-lbl">S4 ★</span><span class="score-val g">164 k€</span></div>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Frais gestion / an</div>
+      <div class="score-row"><span class="score-lbl">S1</span><span class="score-val a">11 500 €</span></div>
+      <div class="score-row"><span class="score-lbl">S2</span><span class="score-val r">15 500 €</span></div>
+      <div class="score-row"><span class="score-lbl">S3</span><span class="score-val r">17 000 €</span></div>
+      <div class="score-row"><span class="score-lbl">S4 ★</span><span class="score-val g">10 500 €</span></div>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Acceptabilité Géraud</div>
+      <div class="score-row"><span class="score-lbl">S1</span><span class="score-val r">Contesté</span></div>
+      <div class="score-row"><span class="score-lbl">S2</span><span class="score-val g">Acceptable</span></div>
+      <div class="score-row"><span class="score-lbl">S3</span><span class="score-val g">Acceptable</span></div>
+      <div class="score-row"><span class="score-lbl">S4 ★</span><span class="score-val g">Acceptable</span></div>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Complexité juridique</div>
+      <div class="score-row"><span class="score-lbl">S1</span><span class="score-val a">Moyenne</span></div>
+      <div class="score-row"><span class="score-lbl">S2</span><span class="score-val r">Élevée</span></div>
+      <div class="score-row"><span class="score-lbl">S3</span><span class="score-val a">Moyenne</span></div>
+      <div class="score-row"><span class="score-lbl">S4 ★</span><span class="score-val g">Faible</span></div>
+    </div>
+
+    <div class="score-card bank-card">
+      <div class="score-title">Acceptabilité banque</div>
+      <div class="score-row"><span class="score-lbl">S1</span><span class="score-val g">Excellente</span></div>
+      <div class="score-row"><span class="score-lbl">S2</span><span class="score-val r">Limitée</span></div>
+      <div class="score-row"><span class="score-lbl">S3</span><span class="score-val a">Bonne</span></div>
+      <div class="score-row"><span class="score-lbl">S4 ★</span><span class="score-val g">Très bonne</span></div>
+    </div>
+
+  </div>
+
+  <!-- Bank detail note -->
+  <div style="margin-top:12px;padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--blue-200);background:var(--blue-50);font-size:12px;color:var(--blue-800);line-height:1.6;">
+    <strong>Acceptabilité banque — critères combinés :</strong> nantissement (simplicité et solidité de la garantie) + DSCR (flux disponibles pour le service de dette) + gouvernance (clarté des décisions).<br>
+    S1 : nantissement unique + DSCR max → excellente. &nbsp;|&nbsp; S2 : double nantissement + DSCR dégradé + 2 entités → limitée. &nbsp;|&nbsp; S3 : nantissement HC unique + DSCR modéré → bonne. &nbsp;|&nbsp; S4 : nantissement unique OpCo fusionnée + DSCR correct (50 % div) + gouvernance simple → très bonne.
+  </div>
+
+  <div class="footer">
+    <span class="footer-note">Confidentiel — usage interne uniquement</span>
+    <span class="footer-date">Version mars 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
